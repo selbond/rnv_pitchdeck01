@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock'n'Verse Investor Pitch Deck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .slide {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            border-bottom: 1px solid #222;
+            overflow: hidden;
+        }
+        
+        /* Individual slide backgrounds */
+        .slide:nth-of-type(1) {
+            background-image: url('images/bg1.jpg');
+        }
+        
+        .slide:nth-of-type(2) {
+            background-image: url('images/bg2.jpg');
+        }
+        
+        .slide:nth-of-type(3) {
+            background-image: url('images/bg3.jpg');
+        }
+        
+        .slide:nth-of-type(4) {
+            background-image: url('images/bg4.jpg');
+        }
+        
+        .slide:nth-of-type(5) {
+            background-image: url('images/bg5.jpg');
+        }
+        
+        .slide:nth-of-type(6) {
+            background-image: url('images/bg6.jpg');
+        }
+        
+        .slide:nth-of-type(7) {
+            background-image: url('images/bg7.jpg');
+        }
+        
+        .slide:nth-of-type(8) {
+            background-image: url('images/bg8.jpg');
+        }
+        
+        .slide:nth-of-type(9) {
+            background-image: url('images/bg9.jpg');
+        }
+        
+        .slide:nth-of-type(10) {
+            background-image: url('images/bg10.jpg');
+        }
+        
+        .slide:nth-of-type(11) {
+            background-image: url('images/bg11.jpg');
+        }
+        
+        .slide:nth-of-type(12) {
+            background-image: url('images/bg12.jpg');
+        }
+        
+        .slide:nth-of-type(13) {
+            background-image: url('images/bg13.jpg');
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(220, 20, 60, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .slide-content {
+            background: rgba(0,0,0,0.65);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+            max-width: 1200px;
+            width: 100%;
+            z-index: 2;
+            position: relative;
+        }
+        
+        /* Title Slide */
+        .title-slide {
+            text-align: center;
+        }
+        
+        .title-slide h1 {
+            margin-bottom: 20px;
+        }
+        
+        .title-slide .logo {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        
+        .title-slide h2 {
+            font-size: 36px;
+            font-weight: 300;
+            color: #fff;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        .title-slide p {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 50px;
+        }
+        
+        .title-slide .tagline {
+            font-size: 32px;
+            color: #FF6B35;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        /* Problem/Solution Slides */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .big-number {
+            font-size: 180px;
+            font-weight: 900;
+            color: #FF6B35;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .metric-label {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+        
+        .problem-list {
+            list-style: none;
+        }
+        
+        .problem-list li {
+            font-size: 20px;
+            margin-bottom: 30px;
+            padding-left: 40px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .problem-list li::before {
+            content: '×';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 36px;
+            color: #DC143C;
+            font-weight: 300;
+        }
+        
+        .solution-list li::before {
+            content: '✓';
+            color: #FFD93D;
+        }
+        
+        /* Ecosystem Slide */
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .ecosystem-category {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .ecosystem-category:hover {
+            background: rgba(255, 107, 53, 0.1);
+            border-color: rgba(255, 107, 53, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .ecosystem-category h3 {
+            font-size: 24px;
+            color: #FFD93D;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ecosystem-category ul {
+            list-style: none;
+        }
+        
+        .ecosystem-category li {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .ecosystem-category li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #FF6B35;
+        }
+        
+        /* Market Segments */
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .market-segment {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 217, 61, 0.05) 100%);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            padding: 40px;
+            border-radius: 8px;
+        }
+        
+        .market-segment h3 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        
+        .market-segment ul {
+            list-style: none;
+        }
+        
+        .market-segment li {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .market-segment li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #FFD93D;
+            font-size: 24px;
+        }
+        
+        /* Revenue Model */
+        .revenue-streams {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .revenue-item {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 4px solid #FF6B35;
+            transition: all 0.3s ease;
+        }
+        
+        .revenue-item:hover {
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateX(10px);
+        }
+        
+        .revenue-icon {
+            font-size: 48px;
+            color: #FFD93D;
+        }
+        
+        .revenue-content h4 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        
+        .revenue-content p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Tech Stack */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .tech-section {
+            position: relative;
+        }
+        
+        .tech-section h3 {
+            font-size: 36px;
+            color: #FFD93D;
+            margin-bottom: 30px;
+        }
+        
+        .tech-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 4px;
+            border-left: 3px solid #FF6B35;
+        }
+        
+        /* Achievements */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .achievement-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 107, 53, 0.05);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 8px;
+        }
+        
+        .achievement-number {
+            font-size: 64px;
+            font-weight: 900;
+            color: #FFD93D;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-label {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Timeline */
+        .timeline {
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #FF6B35 0%, #FFD93D 100%);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .timeline-marker {
+            width: 40px;
+            height: 40px;
+            background: #FF6B35;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+            margin-top: 60px;
+        }
+        
+        .team-member {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            object-fit: cover;
+            border: 3px solid rgba(255, 107, 53, 0.3);
+        }
+        
+        .member-info h3 {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .member-info h4 {
+            font-size: 20px;
+            color: #FFD93D;
+            margin-bottom: 20px;
+        }
+        
+        .member-info ul {
+            list-style: none;
+        }
+        
+        .member-info li {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+        }
+        
+        /* Investment Request */
+        .investment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-top: 60px;
+        }
+        
+        .investment-needs {
+            background: rgba(255, 107, 53, 0.05);
+            border: 2px solid rgba(255, 107, 53, 0.2);
+            padding: 50px;
+            border-radius: 8px;
+        }
+        
+        .investment-needs h3 {
+            font-size: 36px;
+            color: #FFD93D;
+            margin-bottom: 30px;
+        }
+        
+        .investment-needs ul {
+            list-style: none;
+        }
+        
+        .investment-needs li {
+            font-size: 20px;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .investment-needs li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #FF6B35;
+        }
+        
+        /* Vision Slide */
+        .vision-slide {
+            text-align: center;
+        }
+        
+        .vision-slide h2 {
+            font-size: 72px;
+            margin-bottom: 40px;
+        }
+        
+        .vision-text {
+            font-size: 28px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 25px 60px;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF6B35, #FFD93D);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.4);
+        }
+        
+        .final-tagline {
+            font-size: 48px;
+            font-weight: 900;
+            color: #FF6B35;
+            margin-top: 60px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .slide-content-box {
+            background: rgba(0,0,0,0.65);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+            display: inline-block;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- SLIDE 1: TITLE -->
+    <div class="slide title-slide">
+        <div class="slide-content" style="text-align: center; background: none; box-shadow: none; padding: 0;">
+            <img src="images/logo.png" alt="Rock'n'Verse" class="logo">
+            <div class="slide-content-box">
+                <h2>The Decentralized Musicverse</h2>
+                <p>A Web3, Game, and AI-powered music ecosystem</p>
+                <div class="tagline">#WAGRI - We are Gonna Rock It!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: THE PROBLEM -->
+    <div class="slide">
+        <div class="slide-content split-layout">
+            <div>
+                <div class="big-number">97%</div>
+                <div class="metric-label">of artists earn less than $1,000/year</div>
+                <div class="big-number">$0.003</div>
+                <div class="metric-label">average streaming payout per play</div>
+            </div>
+            <div>
+                <h2>The Industry is Broken</h2>
+                <ul class="problem-list">
+                    <li><strong>Gatekeepers Control Everything</strong><br>Labels, distributors, and platforms take 85% of revenue</li>
+                    <li><strong>Impossible Entry Barriers</strong><br>$50K+ needed just to get started professionally</li>
+                    <li><strong>Ponzi Play-to-Earn Models</strong><br>Current P2E game models are unsustainable</li>
+                    <li><strong>Artists Become Everything</strong><br>Forced to be marketer, designer, manager, accountant</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: OUR SOLUTION -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Web3 Music Revolution</h2>
+            <ul class="problem-list solution-list">
+                <li><strong>Complete Creative Ecosystem</strong><br>14 interconnected modules covering every aspect of music creation and monetization</li>
+                <li><strong>Sustainable Game Economy</strong><br>Real-world economics simulation, not another Ponzi scheme</li>
+                <li><strong>Skill-Based Rewards Only</strong><br>Success based on talent and strategy, not speculation</li>
+                <li><strong>True Decentralization</strong><br>Community-owned, transparent smart contracts, fair revenue distribution</li>
+                <li><strong>IRL + Digital Integration</strong><br>NFT ticketing system connecting virtual and physical events</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: PRODUCT ECOSYSTEM -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>14 Interconnected Modules</h2>
+            <div class="ecosystem-grid">
+                <div class="ecosystem-category">
+                    <h3>🎮 Gaming & Earning</h3>
+                    <ul>
+                        <li>Mosh Token Economy</li>
+                        <li>Band Together RPG</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h3>🤖 AI Creation Tools</h3>
+                    <ul>
+                        <li>DAW AI Workstation</li>
+                        <li>Band AI Assistants</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h3>🌐 Platform Services</h3>
+                    <ul>
+                        <li>Pitch'n'Plug PR</li>
+                        <li>Groove Protocol Streaming</li>
+                        <li>Smart Contract Builder</li>
+                        <li>Rock'n'Verse Records</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h3>🎫 Events & NFTs</h3>
+                    <ul>
+                        <li>IRL Event Integration</li>
+                        <li>NFT Ticketing Platform</li>
+                        <li>Rockin'vest Revenue NFTs</li>
+                        <li>RNV Marketplace</li>
+                    </ul>
+                </div>
+                <div class="ecosystem-category">
+                    <h3>📚 Infrastructure</h3>
+                    <ul>
+                        <li>Rock'n'Verse Academy</li>
+                        <li>RNV Cloud Storage</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5: TARGET AUDIENCE -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Four Key Market Segments</h2>
+            <div class="market-grid">
+                <div class="market-segment">
+                    <h3>Independent Artists & Bands</h3>
+                    <ul>
+                        <li>1.2M+ rock/metal artists globally</li>
+                        <li>Seeking affordable production tools</li>
+                        <li>Need fair revenue distribution</li>
+                    </ul>
+                </div>
+                <div class="market-segment">
+                    <h3>Web3 Gaming Community</h3>
+                    <ul>
+                        <li>400M+ blockchain gamers</li>
+                        <li>Want sustainable earning models</li>
+                        <li>Value skill-based rewards</li>
+                    </ul>
+                </div>
+                <div class="market-segment">
+                    <h3>Virtual Business Operators</h3>
+                    <ul>
+                        <li>In-game entrepreneurs</li>
+                        <li>Bar owners, shop managers</li>
+                        <li>Seeking realistic simulations</li>
+                    </ul>
+                </div>
+                <div class="market-segment">
+                    <h3>Music Tech Investors</h3>
+                    <ul>
+                        <li>DAOs and angel investors</li>
+                        <li>$2.4B music NFT market</li>
+                        <li>Transparent investment ops</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: REVENUE MODEL -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Multi-Stream Revenue Engine</h2>
+            <div class="revenue-streams">
+                <div class="revenue-item">
+                    <div class="revenue-icon">💰</div>
+                    <div class="revenue-content">
+                        <h4>SaaS Platform Fees</h4>
+                        <p>Pay-per-use AI tools, production services, smart contract generation</p>
+                    </div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-icon">🎫</div>
+                    <div class="revenue-content">
+                        <h4>NFT Ticketing Commission</h4>
+                        <p>2-5% on all ticket sales with automated revenue splits</p>
+                    </div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-icon">🎮</div>
+                    <div class="revenue-content">
+                        <h4>In-Game Economy</h4>
+                        <p>Virtual real estate, resources, equipment, services</p>
+                    </div>
+                </div>
+                <div class="revenue-item">
+                    <div class="revenue-icon">🏆</div>
+                    <div class="revenue-content">
+                        <h4>Performance Rewards</h4>
+                        <p>Skill-based earnings from rhythm games and competitions</p>
+                    </div>
+                </div>
+            </div>
+            <h3 style="text-align: center; margin-top: 50px; color: #FFD93D; font-size: 32px;">
+                NO PONZI TOKENOMICS - REAL VALUE CREATION
+            </h3>
+        </div>
+    </div>
+
+    <!-- SLIDE 7: TECHNOLOGY STACK -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Enterprise-Grade Tech Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-section">
+                    <h3>Blockchain Infrastructure</h3>
+                    <div class="tech-item">
+                        <strong>Solana Network</strong><br>
+                        65,000 TPS, $0.00025 transaction cost
+                    </div>
+                    <div class="tech-item">
+                        <strong>Smart Contract Suite</strong><br>
+                        No-code builders for mass adoption
+                    </div>
+                    <div class="tech-item">
+                        <strong>Modular Architecture</strong><br>
+                        Seamless NFT + AI + Gaming integration
+                    </div>
+                </div>
+                <div class="tech-section">
+                    <h3>AI Implementation</h3>
+                    <div class="tech-item">
+                        <strong>Ethical AI Framework</strong><br>
+                        Tools enhance, never replace human creativity
+                    </div>
+                    <div class="tech-item">
+                        <strong>Transparent Processing</strong><br>
+                        All AI assistance clearly marked
+                    </div>
+                    <div class="tech-item">
+                        <strong>Custom Model Training</strong><br>
+                        Genre-specific optimization
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 8: COMPETITIVE ADVANTAGE -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Unmatched Market Position</h2>
+            <div class="split-layout">
+                <div>
+                    <h3 style="color: #FFD93D; font-size: 36px; margin-bottom: 30px;">Why We Win</h3>
+                    <ul class="problem-list solution-list">
+                        <li><strong>Industry Veterans</strong><br>20+ years combined experience in music & tech</li>
+                        <li><strong>Complete Ecosystem</strong><br>Only platform covering entire music lifecycle</li>
+                        <li><strong>Proven Traction</strong><br>Already generating revenue and community</li>
+                        <li><strong>Sustainable Model</strong><br>Real economics, not speculation</li>
+                    </ul>
+                </div>
+                <div class="achievement-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr);">
+                    <div class="achievement-card">
+                        <div class="achievement-number">$25K</div>
+                        <div class="achievement-label">Pre-seed Secured</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">4K+</div>
+                        <div class="achievement-label">Discord Users</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">#1</div>
+                        <div class="achievement-label">AI Music Video in Turkey</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">🏆</div>
+                        <div class="achievement-label">NFT Summit Platinum</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: CURRENT STATUS -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Current Development Status</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Phase 1: Foundation (Q1 2024)</h3>
+                        <p>Core team assembled, pre-seed funding secured, initial community building</p>
+                    </div>
+                    <div class="timeline-marker">1</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Phase 2: MVP Development (Q2 2024)</h3>
+                        <p>First AI tools, basic smart contracts, initial game mechanics</p>
+                    </div>
+                    <div class="timeline-marker">2</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Phase 3: Beta Launch (Q3 2024)</h3>
+                        <p>Public beta testing, community feedback integration, platform optimization</p>
+                    </div>
+                    <div class="timeline-marker">3</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Phase 4: Full Launch (Q4 2024)</h3>
+                        <p>Complete ecosystem launch, marketing campaigns, partnership expansion</p>
+                    </div>
+                    <div class="timeline-marker">4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 10: TEAM -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>The Rock'n'Verse Team</h2>
+            <div class="team-grid">
+                <div c                <div class="team-member">
+                    <img src="images/selcuk.png" alt="Selçuk Eser" class="member-avatar">
+                    <div class="member-info">
+                        <h3>Selçuk Eser</h3>
+                        <h4>Founder & CEO</h4>
+                        <ul>
+                            <li>20+ years music industry experience</li>
+                            <li>Sound Engineer & Producer (ITU-MIAM graduate)</li>
+                            <li>Specialized in music tech & digital workflows</li>
+                            <li>Former studio owner & bandleader</li>
+                            <li>Computer Engineer with Web3 & game dev focus</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <img src="images/kerem.png" alt="Kerem Noras" class="member-avatar">
+                    <div class="member-info">
+                        <h3>Kerem Noras</h3>
+                        <h4>Tech Lead</h4>
+                        <ul>
+                            <li>15+ years software engineering experience</li>
+                            <li>Expert in AI/ML and blockchain infrastructure</li>
+                            <li>Founder of IntelliSight AI & former CTO</li>
+                            <li>Open-source contributor & decentralized tools builder</li>
+                            <li>Specialized in scalable DAO & NFT systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 11: INVESTMENT REQUEST -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Investment Opportunity</h2>
+            <div class="investment-grid">
+                <div class="investment-needs">
+                    <h3>Funding Requirements</h3>
+                    <ul>
+                        <li><strong>$500K Seed Round</strong><br>Platform development and team expansion</li>
+                        <li><strong>$2M Series A</strong><br>Marketing, partnerships, and scaling</li>
+                        <li><strong>Strategic Partnerships</strong><br>Music labels, gaming companies, tech platforms</li>
+                        <li><strong>Advisory Board</strong><br>Industry veterans and blockchain experts</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #FFD93D; font-size: 36px; margin-bottom: 30px;">Use of Funds</h3>
+                    <ul class="problem-list solution-list">
+                        <li><strong>40% - Product Development</strong><br>AI tools, smart contracts, game mechanics</li>
+                        <li><strong>30% - Marketing & Growth</strong><br>Community building, partnerships, user acquisition</li>
+                        <li><strong>20% - Team Expansion</strong><br>Key hires in engineering, design, and business</li>
+                        <li><strong>10% - Operations</strong><br>Legal, infrastructure, and administrative costs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 12: VISION -->
+    <div class="slide vision-slide">
+        <div class="slide-content">
+            <h2>The Future of Music</h2>
+            <div class="vision-text">
+                We envision a world where every musician has the tools, community, and economic freedom to create their best work. Where fans become true stakeholders in the music they love. Where the line between virtual and physical experiences dissolves into a seamless, immersive musical universe.
+            </div>
+            <a href="#" class="cta-button">Join the Revolution</a>
+            <div class="final-tagline">Rock'n'Verse - The Future is Now</div>
+        </div>
+    </div>
+
+    <!-- SLIDE 13: CONTACT -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Let's Build the Future Together</h2>
+            <div class="split-layout">
+                <div>
+                    <h3 style="color: #FFD93D; font-size: 36px; margin-bottom: 30px;">Get in Touch</h3>
+                    <ul class="problem-list solution-list">
+                        <li><strong>Email:</strong> info@rocknverse.com</li>
+                        <li><strong>Discord:</strong> discord.gg/rocknverse</li>
+                        <li><strong>Twitter:</strong> x.com/rocknverse</li>
+                        <li><strong>Website:</strong> rocknverse.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #FFD93D; font-size: 36px; margin-bottom: 30px;">Next Steps</h3>
+                    <ul class="problem-list solution-list">
+                        <li><strong>Schedule a Demo</strong><br>See our platform in action</li>
+                        <li><strong>Join Our Community</strong><br>Connect with fellow musicians and developers</li>
+                        <li><strong>Investment Discussion</strong><br>Let's explore partnership opportunities</li>
+                        <li><strong>Beta Testing</strong><br>Be among the first to experience Rock'n'Verse</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
